@@ -16,5 +16,15 @@ namespace EasyCapture
 		{
 			InitializeComponent();
 		}
+
+		private void ExitItem_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		private void MinimizeItem_Click(object sender, EventArgs e)
+		{
+			this.Visible = false;
+		}
 	}
 }
