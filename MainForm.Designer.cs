@@ -30,23 +30,12 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			this.ScreenPanel = new System.Windows.Forms.PictureBox();
 			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.StartItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ExitItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.MinimizeItem = new System.Windows.Forms.ToolStripMenuItem();
-			((System.ComponentModel.ISupportInitialize)(this.ScreenPanel)).BeginInit();
 			this.contextMenuStrip1.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// ScreenPanel
-			// 
-			this.ScreenPanel.Location = new System.Drawing.Point(188, 12);
-			this.ScreenPanel.Name = "ScreenPanel";
-			this.ScreenPanel.Size = new System.Drawing.Size(282, 237);
-			this.ScreenPanel.TabIndex = 0;
-			this.ScreenPanel.TabStop = false;
 			// 
 			// notifyIcon1
 			// 
@@ -59,16 +48,16 @@
 			// 
 			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StartItem,
-            this.ExitItem,
-            this.MinimizeItem});
+            this.ExitItem});
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
+			this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
 			// 
 			// StartItem
 			// 
 			this.StartItem.Name = "StartItem";
 			this.StartItem.Size = new System.Drawing.Size(152, 22);
 			this.StartItem.Text = "開始";
+			this.StartItem.Click += new System.EventHandler(this.StartItem_Click);
 			// 
 			// ExitItem
 			// 
@@ -77,35 +66,26 @@
 			this.ExitItem.Text = "終了";
 			this.ExitItem.Click += new System.EventHandler(this.ExitItem_Click);
 			// 
-			// MinimizeItem
-			// 
-			this.MinimizeItem.Name = "MinimizeItem";
-			this.MinimizeItem.Size = new System.Drawing.Size(152, 22);
-			this.MinimizeItem.Text = "最小化";
-			this.MinimizeItem.Click += new System.EventHandler(this.MinimizeItem_Click);
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(492, 261);
-			this.Controls.Add(this.ScreenPanel);
+			this.ClientSize = new System.Drawing.Size(230, 147);
 			this.Name = "MainForm";
+			this.Opacity = 0D;
+			this.ShowInTaskbar = false;
 			this.Text = "MainForm";
-			((System.ComponentModel.ISupportInitialize)(this.ScreenPanel)).EndInit();
+			this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
 			this.contextMenuStrip1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.PictureBox ScreenPanel;
 		private System.Windows.Forms.NotifyIcon notifyIcon1;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem StartItem;
 		private System.Windows.Forms.ToolStripMenuItem ExitItem;
-		private System.Windows.Forms.ToolStripMenuItem MinimizeItem;
 	}
 }
 

@@ -8,3 +8,5 @@ C:\Users\kazuma\Documents\Visual Studio 2017\Projects\EasyCapture\EasyCapture\ob
 C:\Users\kazuma\Documents\Visual Studio 2017\Projects\EasyCapture\EasyCapture\obj\Debug\EasyCapture.csproj.CoreCompileInputs.cache
 C:\Users\kazuma\Documents\Visual Studio 2017\Projects\EasyCapture\EasyCapture\obj\Debug\EasyCapture.exe
 C:\Users\kazuma\Documents\Visual Studio 2017\Projects\EasyCapture\EasyCapture\obj\Debug\EasyCapture.pdb
+C:\Users\kazuma\Documents\Visual Studio 2017\Projects\EasyCapture\EasyCapture\obj\Debug\EasyCapture.CaptureForm.resources
+C:\Users\kazuma\Documents\Visual Studio 2017\Projects\EasyCapture\EasyCapture\obj\Debug\EasyCapture.ShowPictureForm.resources

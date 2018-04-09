@@ -26,5 +26,11 @@ namespace EasyCapture
 		{
 			this.Visible = false;
 		}
+
+		private void StartItem_Click(object sender, EventArgs e)
+		{
+			CaptureForm cap = new CaptureForm(Screen.PrimaryScreen);
+			cap.ShowDialog();
+		}
 	}
 }
