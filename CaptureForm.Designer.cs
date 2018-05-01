@@ -41,6 +41,7 @@
 			this.Canpus.TabIndex = 0;
 			this.Canpus.TabStop = false;
 			this.Canpus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Canpus_MouseDown);
+			this.Canpus.MouseLeave += new System.EventHandler(this.Canpus_MouseLeave);
 			this.Canpus.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Canpus_MouseMove);
 			this.Canpus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Canpus_MouseUp);
 			// 
@@ -55,6 +56,8 @@
 			this.Opacity = 0.1D;
 			this.Text = "CaptureForm";
 			this.TopMost = true;
+			this.MouseLeave += new System.EventHandler(this.CaptureForm_MouseLeave);
+			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CaptureForm_MouseMove);
 			((System.ComponentModel.ISupportInitialize)(this.Canpus)).EndInit();
 			this.ResumeLayout(false);
 

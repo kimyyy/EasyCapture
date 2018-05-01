@@ -19,10 +19,10 @@ namespace EasyCapture
 
 		private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
 		{
-			string[] filenames = { @"C:\EasyCap\Shot1.jpg" };
-			DataObject dataObj = new DataObject(DataFormats.FileDrop, filenames);
-			dataObj.SetData(DataFormats.Bitmap, Image.FromFile(filenames[0]));
-			pictureBox1.DoDragDrop(pictureBox1.Image, DragDropEffects.All);
+			//string[] filenames = { @"C:\EasyCap\Shot1.jpg" };
+			//DataObject dataObj = new DataObject(DataFormats.FileDrop, filenames);
+			//dataObj.SetData(DataFormats.Bitmap, Image.FromFile(filenames[0]));
+			//pictureBox1.DoDragDrop(pictureBox1.Image, DragDropEffects.All);
 		}
 
 		private void ShowPictureForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -31,6 +31,13 @@ namespace EasyCapture
 		}
 
 		private void ShowPictureForm_SizeChanged(object sender, EventArgs e)
+		{
+				
+		}
+
+		
+
+		private void ShowPictureForm_Move(object sender, EventArgs e)
 		{
 			
 		}

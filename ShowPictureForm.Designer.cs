@@ -34,10 +34,11 @@
 			// 
 			// pictureBox1
 			// 
+			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
 			this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(494, 210);
+			this.pictureBox1.Size = new System.Drawing.Size(523, 256);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
@@ -53,6 +54,7 @@
 			this.Text = "ShowPictureForm";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShowPictureForm_FormClosing);
 			this.SizeChanged += new System.EventHandler(this.ShowPictureForm_SizeChanged);
+			this.Move += new System.EventHandler(this.ShowPictureForm_Move);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

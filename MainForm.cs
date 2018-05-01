@@ -29,8 +29,8 @@ namespace EasyCapture
 
 		private void StartItem_Click(object sender, EventArgs e)
 		{
-			CaptureForm cap = new CaptureForm(Screen.PrimaryScreen);
-			cap.ShowDialog();
+			CaptureForm cap = new CaptureForm();
+			cap.Show();
 		}
 	}
 }

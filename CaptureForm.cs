@@ -17,11 +17,14 @@ namespace EasyCapture
 		Bitmap bitmap;
 		Boolean view = false;
 
-		public CaptureForm(Screen sc)
+		public CaptureForm()
 		{
 			InitializeComponent();
-			this.Height = Screen.GetBounds(this.Location).Height;
-			this.Width = Screen.GetBounds(this.Location).Width;
+			Point point = Cursor.Position;
+			Screen sc = Screen.FromPoint(point);
+			Location = sc.Bounds.Location;
+			Height = sc.Bounds.Height;
+			Width = sc.Bounds.Width;
 			bitmap = new Bitmap(Canpus.Width, Canpus.Height);
 		}
 
@@ -57,6 +60,11 @@ namespace EasyCapture
 			Point end = new Point();
 			MU.X = e.X;
 			MU.Y = e.Y;
+			if (MD.X == MU.X || MD.Y == MU.Y)
+			{
+				this.Close();
+				return;
+			}
 
 			start.X = Math.Min(MD.X, MU.X);
 			start.Y = Math.Min(MD.Y, MU.Y);
@@ -75,7 +83,7 @@ namespace EasyCapture
 			Properties.Settings.Default.ImageNumber++;
 			Properties.Settings.Default.Save();
 			ShowPictureForm sp = new ShowPictureForm();
-			sp.Size = size;
+			sp.Size = new Size(end.X - start.X + 16, end.Y - start.Y + 39);
 			sp.pictureBox1.Size = size;
 			sp.pictureBox1.Image = bmp;
 			sp.Show();
@@ -123,6 +131,25 @@ namespace EasyCapture
 
 			end.X = Math.Max(p1.X, p2.X);
 			end.Y = Math.Max(p1.Y, p2.Y);
+		}
+
+		private void Canpus_MouseLeave(object sender, EventArgs e)
+		{
+			Point point = Cursor.Position;
+			Screen sc = Screen.FromPoint(point);
+			Location = sc.Bounds.Location;
+			Height = sc.Bounds.Height;
+			Width = sc.Bounds.Width;
+		}
+
+		private void CaptureForm_MouseLeave(object sender, EventArgs e)
+		{
+			
+		}
+
+		private void CaptureForm_MouseMove(object sender, MouseEventArgs e)
+		{
+			
 		}
 	}
 }
