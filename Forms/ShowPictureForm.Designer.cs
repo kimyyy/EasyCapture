@@ -51,6 +51,7 @@
 			this.ClientSize = new System.Drawing.Size(523, 256);
 			this.Controls.Add(this.pictureBox1);
 			this.Name = "ShowPictureForm";
+			this.ShowIcon = false;
 			this.Text = "ShowPictureForm";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShowPictureForm_FormClosing);
 			this.SizeChanged += new System.EventHandler(this.ShowPictureForm_SizeChanged);

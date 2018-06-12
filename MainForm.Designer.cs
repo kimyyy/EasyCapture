@@ -31,61 +31,74 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.StartItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.ExitItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.contextMenuStrip1.SuspendLayout();
+			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.contextMenuStripItemStart = new System.Windows.Forms.ToolStripMenuItem();
+			this.contextMenuStripItemExit = new System.Windows.Forms.ToolStripMenuItem();
+			this.contextMenuItemConfig = new System.Windows.Forms.ToolStripMenuItem();
+			this.contextMenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// notifyIcon1
 			// 
-			this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+			this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip;
 			this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
 			this.notifyIcon1.Text = "EasyCap";
 			this.notifyIcon1.Visible = true;
 			// 
-			// contextMenuStrip1
+			// contextMenuStrip
 			// 
-			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StartItem,
-            this.ExitItem});
-			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+			this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuStripItemStart,
+            this.contextMenuItemConfig,
+            this.contextMenuStripItemExit});
+			this.contextMenuStrip.Name = "contextMenuStrip1";
+			this.contextMenuStrip.Size = new System.Drawing.Size(181, 92);
 			// 
-			// StartItem
+			// contextMenuStripItemStart
 			// 
-			this.StartItem.Name = "StartItem";
-			this.StartItem.Size = new System.Drawing.Size(152, 22);
-			this.StartItem.Text = "開始";
-			this.StartItem.Click += new System.EventHandler(this.StartItem_Click);
+			this.contextMenuStripItemStart.Name = "contextMenuStripItemStart";
+			this.contextMenuStripItemStart.Size = new System.Drawing.Size(180, 22);
+			this.contextMenuStripItemStart.Text = "開始";
+			this.contextMenuStripItemStart.Click += new System.EventHandler(this.StartItem_Click);
 			// 
-			// ExitItem
+			// contextMenuStripItemExit
 			// 
-			this.ExitItem.Name = "ExitItem";
-			this.ExitItem.Size = new System.Drawing.Size(152, 22);
-			this.ExitItem.Text = "終了";
-			this.ExitItem.Click += new System.EventHandler(this.ExitItem_Click);
+			this.contextMenuStripItemExit.Name = "contextMenuStripItemExit";
+			this.contextMenuStripItemExit.Size = new System.Drawing.Size(180, 22);
+			this.contextMenuStripItemExit.Text = "終了";
+			this.contextMenuStripItemExit.Click += new System.EventHandler(this.ExitItem_Click);
+			// 
+			// contextMenuItemConfig
+			// 
+			this.contextMenuItemConfig.Name = "contextMenuItemConfig";
+			this.contextMenuItemConfig.Size = new System.Drawing.Size(180, 22);
+			this.contextMenuItemConfig.Text = "設定";
+			this.contextMenuItemConfig.Click += new System.EventHandler(this.contextMenuItemConfig_Click);
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(230, 147);
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "MainForm";
 			this.Opacity = 0D;
+			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.Text = "MainForm";
 			this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-			this.contextMenuStrip1.ResumeLayout(false);
+			this.contextMenuStrip.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 		private System.Windows.Forms.NotifyIcon notifyIcon1;
-		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-		private System.Windows.Forms.ToolStripMenuItem StartItem;
-		private System.Windows.Forms.ToolStripMenuItem ExitItem;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+		private System.Windows.Forms.ToolStripMenuItem contextMenuStripItemStart;
+		private System.Windows.Forms.ToolStripMenuItem contextMenuStripItemExit;
+		private System.Windows.Forms.ToolStripMenuItem contextMenuItemConfig;
 	}
 }
 

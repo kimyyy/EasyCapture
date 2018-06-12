@@ -32,5 +32,10 @@ namespace EasyCapture
 			CaptureForm cap = new CaptureForm();
 			cap.Show();
 		}
+
+		private void contextMenuItemConfig_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
