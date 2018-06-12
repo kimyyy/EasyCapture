@@ -69,14 +69,21 @@ namespace EasyCapture
 			view = false;
 			this.Close();
 
-			// 画像の保存
+			// スクショを撮る
 			Bitmap bmp = new Bitmap(end.X - start.X, end.Y - start.Y);
 			Graphics g = Graphics.FromImage(bmp);
 			Size size = new Size(end.X - start.X, end.Y - start.Y);
 			g.CopyFromScreen(start, new Point(0, 0), size);
 			g.Dispose();
+
+			// 画像の保存
 			string picFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-			string filePath = picFolderPath + Properties.Settings.Default.ImageNumber + ".jpg";
+			string saveFolderPath = String.Join("\\", picFolderPath, "EasyCap");
+			if (!Directory.Exists(saveFolderPath))
+			{
+				Directory.CreateDirectory(saveFolderPath);
+			}
+			string filePath = saveFolderPath + "\\" + Properties.Settings.Default.ImageNumber + ".jpg";
 			bmp.Save(filePath, System.Drawing.Imaging.ImageFormat.Jpeg);
 			logger.InfoFormat("画像は{0}に保存されました。", filePath);
 			Properties.Settings.Default.ImageNumber++;
