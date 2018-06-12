@@ -29,7 +29,7 @@ namespace EasyCapture
 
 		private void StartItem_Click(object sender, EventArgs e)
 		{
-			CaptureForm cap = new CaptureForm();
+			var cap = new CaptureForm();
 			cap.Show();
 		}
 
