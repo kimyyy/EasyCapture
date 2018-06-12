@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using log4net.Core;
+using log4net;
 
 namespace EasyCapture
 {
 	public partial class MainForm : Form
 	{
+		ILog logger = LogManager.GetLogger(typeof(MainForm));
+
 		public MainForm()
 		{
+			logger.Info("開始しました");
 			InitializeComponent();
 		}
 
@@ -36,6 +41,11 @@ namespace EasyCapture
 		private void contextMenuItemConfig_Click(object sender, EventArgs e)
 		{
 
+		}
+
+		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			logger.Info("終了します");
 		}
 	}
 }

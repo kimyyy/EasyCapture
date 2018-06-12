@@ -33,8 +33,8 @@
 			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
 			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.contextMenuStripItemStart = new System.Windows.Forms.ToolStripMenuItem();
-			this.contextMenuStripItemExit = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuItemConfig = new System.Windows.Forms.ToolStripMenuItem();
+			this.contextMenuStripItemExit = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -52,28 +52,28 @@
             this.contextMenuItemConfig,
             this.contextMenuStripItemExit});
 			this.contextMenuStrip.Name = "contextMenuStrip1";
-			this.contextMenuStrip.Size = new System.Drawing.Size(181, 92);
+			this.contextMenuStrip.Size = new System.Drawing.Size(99, 70);
 			// 
 			// contextMenuStripItemStart
 			// 
 			this.contextMenuStripItemStart.Name = "contextMenuStripItemStart";
-			this.contextMenuStripItemStart.Size = new System.Drawing.Size(180, 22);
+			this.contextMenuStripItemStart.Size = new System.Drawing.Size(98, 22);
 			this.contextMenuStripItemStart.Text = "開始";
 			this.contextMenuStripItemStart.Click += new System.EventHandler(this.StartItem_Click);
-			// 
-			// contextMenuStripItemExit
-			// 
-			this.contextMenuStripItemExit.Name = "contextMenuStripItemExit";
-			this.contextMenuStripItemExit.Size = new System.Drawing.Size(180, 22);
-			this.contextMenuStripItemExit.Text = "終了";
-			this.contextMenuStripItemExit.Click += new System.EventHandler(this.ExitItem_Click);
 			// 
 			// contextMenuItemConfig
 			// 
 			this.contextMenuItemConfig.Name = "contextMenuItemConfig";
-			this.contextMenuItemConfig.Size = new System.Drawing.Size(180, 22);
+			this.contextMenuItemConfig.Size = new System.Drawing.Size(98, 22);
 			this.contextMenuItemConfig.Text = "設定";
 			this.contextMenuItemConfig.Click += new System.EventHandler(this.contextMenuItemConfig_Click);
+			// 
+			// contextMenuStripItemExit
+			// 
+			this.contextMenuStripItemExit.Name = "contextMenuStripItemExit";
+			this.contextMenuStripItemExit.Size = new System.Drawing.Size(98, 22);
+			this.contextMenuStripItemExit.Text = "終了";
+			this.contextMenuStripItemExit.Click += new System.EventHandler(this.ExitItem_Click);
 			// 
 			// MainForm
 			// 
@@ -88,6 +88,7 @@
 			this.ShowInTaskbar = false;
 			this.Text = "MainForm";
 			this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.contextMenuStrip.ResumeLayout(false);
 			this.ResumeLayout(false);
 

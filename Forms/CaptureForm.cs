@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using log4net;
+using System.IO;
 
 namespace EasyCapture
 {
 	public partial class CaptureForm : Form
 	{
-		private Point MD;
-		private Point MU;
+
+		ILog logger = LogManager.GetLogger(typeof(CaptureForm));
+
+		private Point mouseDown;
+		private Point mouseUp;
 		Bitmap bitmap;
 		Boolean view = false;
 
@@ -37,40 +42,30 @@ namespace EasyCapture
 			}
 		}
 
-		private void CaptureForm_MouseDown(object sender, MouseEventArgs e)
-		{
-
-		}
-
-		private void CaptureForm_MouseUp(object sender, MouseEventArgs e)
-		{
-
-		}
-
 		private void Canpus_MouseDown(object sender, MouseEventArgs e)
 		{
 			view = true;
-			MD.X = e.X;
-			MD.Y = e.Y;
+			mouseDown.X = Cursor.Position.X;
+			mouseDown.Y = Cursor.Position.Y;
 		}
 
 		private void Canpus_MouseUp(object sender, MouseEventArgs e)
 		{
 			Point start = new Point();
 			Point end = new Point();
-			MU.X = e.X;
-			MU.Y = e.Y;
-			if (MD.X == MU.X || MD.Y == MU.Y)
+			mouseUp.X = Cursor.Position.X;
+			mouseUp.Y = Cursor.Position.Y;
+			if (mouseDown.X == mouseUp.X || mouseDown.Y == mouseUp.Y)
 			{
 				this.Close();
 				return;
 			}
 
 			// 左上と右下を決定
-			start.X = Math.Min(MD.X, MU.X);
-			start.Y = Math.Min(MD.Y, MU.Y);
-			end.X = Math.Max(MD.X, MU.X);
-			end.Y = Math.Max(MD.Y, MU.Y);
+			start.X = Math.Min(mouseDown.X, mouseUp.X);
+			start.Y = Math.Min(mouseDown.Y, mouseUp.Y);
+			end.X = Math.Max(mouseDown.X, mouseUp.X);
+			end.Y = Math.Max(mouseDown.Y, mouseUp.Y);
 			view = false;
 			this.Close();
 
@@ -80,8 +75,10 @@ namespace EasyCapture
 			Size size = new Size(end.X - start.X, end.Y - start.Y);
 			g.CopyFromScreen(start, new Point(0, 0), size);
 			g.Dispose();
-			string filename = @"C:\EasyCap\Shot" + Properties.Settings.Default.ImageNumber + ".jpg";
-			bmp.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
+			string picFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+			string filePath = picFolderPath + Properties.Settings.Default.ImageNumber + ".jpg";
+			bmp.Save(filePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+			logger.InfoFormat("画像は{0}に保存されました。", filePath);
 			Properties.Settings.Default.ImageNumber++;
 			Properties.Settings.Default.Save();
 
@@ -119,7 +116,7 @@ namespace EasyCapture
 			p.X = e.X;
 			p.Y = e.Y;
 
-			GetRegion(MD, p, ref start, ref end);
+			GetRegion(mouseDown, p, ref start, ref end);
 
 			// 四角形を描画
 			DrawRegion(start, end);
@@ -144,16 +141,6 @@ namespace EasyCapture
 			Location = sc.Bounds.Location;
 			Height = sc.Bounds.Height;
 			Width = sc.Bounds.Width;
-		}
-
-		private void CaptureForm_MouseLeave(object sender, EventArgs e)
-		{
-
-		}
-
-		private void CaptureForm_MouseMove(object sender, MouseEventArgs e)
-		{
-
 		}
 	}
 }

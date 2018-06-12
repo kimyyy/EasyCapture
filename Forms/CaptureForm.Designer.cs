@@ -56,8 +56,6 @@
 			this.Opacity = 0.1D;
 			this.Text = "CaptureForm";
 			this.TopMost = true;
-			this.MouseLeave += new System.EventHandler(this.CaptureForm_MouseLeave);
-			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CaptureForm_MouseMove);
 			((System.ComponentModel.ISupportInitialize)(this.Canpus)).EndInit();
 			this.ResumeLayout(false);
 
