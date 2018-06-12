@@ -66,6 +66,7 @@ namespace EasyCapture
 				return;
 			}
 
+			// 左上と右下を決定
 			start.X = Math.Min(MD.X, MU.X);
 			start.Y = Math.Min(MD.Y, MU.Y);
 			end.X = Math.Max(MD.X, MU.X);
@@ -73,6 +74,7 @@ namespace EasyCapture
 			view = false;
 			this.Close();
 
+			// 画像の保存
 			Bitmap bmp = new Bitmap(end.X - start.X, end.Y - start.Y);
 			Graphics g = Graphics.FromImage(bmp);
 			Size size = new Size(end.X - start.X, end.Y - start.Y);
@@ -82,7 +84,9 @@ namespace EasyCapture
 			bmp.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
 			Properties.Settings.Default.ImageNumber++;
 			Properties.Settings.Default.Save();
-			ShowPictureForm sp = new ShowPictureForm();
+
+			// 画像の表示
+			var sp = new ShowPictureForm();
 			sp.Size = new Size(end.X - start.X + 16, end.Y - start.Y + 39);
 			sp.pictureBox1.Size = size;
 			sp.pictureBox1.Image = bmp;
@@ -144,12 +148,12 @@ namespace EasyCapture
 
 		private void CaptureForm_MouseLeave(object sender, EventArgs e)
 		{
-			
+
 		}
 
 		private void CaptureForm_MouseMove(object sender, MouseEventArgs e)
 		{
-			
+
 		}
 	}
 }
